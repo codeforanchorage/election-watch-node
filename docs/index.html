@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Alaska Election Alerts</title>
+        <meta name="description" content="A free service that sends reminders when election results change">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="js/fittext.js"></script>
+    </head>
+    <body>
+        <div id="top">
+            <div id="splashImage">
+                <img src="img/phoneVote.png" />
+            </div>
+            <div id="title">
+                <h1 id="courtBotHeader">Election Alert</h1>
+                <h2>Tired of refreshing the election results page?</h2>
+                <h3>This app will do it for you and send you a text when the results page changes</h3>
+                <p>
+                    Just send a text to:
+                <br>
+                    <span id="phoneNumber">☑  907-312-1012</span> <br>
+                   and follow the instructions. <br />Alerts can occur at any time of day or night.   
+                </p>
+                <h4>Frequently asked questions</h4>
+                <p class ="faq">
+                    <b>How do I turn off notifications?</b><br />
+                    Reply to the message with "stop" and we will stop sending you notifications.
+                </p>
+                <p class ="faq">
+                        <b>Who maintains this</b><br />
+                        This service is maintained by volunteers at Code for Anchorage, a brigade of Code for America. If you would like to be involved with this or similar projects, please visit: <a href="http://codeforanchorage.org">Code for Anchorage</a>.
+                </p>
+            </div>
+        </div>
+        <script>
+            fitText(document.getElementById('courtBotHeader'), 0.9)
+        </script>
+        <script src="" async defer></script>
+    </body>
+</html>
