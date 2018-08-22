@@ -67,10 +67,19 @@ a {
     font-weight: 700;
     line-height: 200%
 }
+@media (max-width:400px){
+    p#phoneNumber{
+        font-size: 2.5em
+    }
+}
 
 @media (max-width: 800px)
 {
+    
     p {
+        font-size:1em;
+    }
+    #phoneNumber{
         font-size:1.5em;
     }
     #top {
