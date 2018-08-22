@@ -31,7 +31,7 @@ function sendMessages() {
 
     // get weather
     site_checker.didSiteChange(
-        'http://www.muni.org/Departments/Assembly/Clerk/Elections/Pages/History.aspx',
+        'http://results.elections.alaska.gov/data/results.htm',
         function (err, changed) {
             if (err) return console.log(err)
 

@@ -1,6 +1,6 @@
 {
     "CONFIRMATION": "Alrighty, you're signed up. Send STOP if you want the messages to stop and START if you change your mind after stopping.",
     "INSTRUCTIONS": "Sorry, I don't know what you want. Send STOP if you want the messages to stop and START if you change your mind after stopping.",
-    "NOTIFICATION": "The page has been updated. Refresh the page after following the link: http://www.muni.org/electionsresults",
+    "NOTIFICATION": "The page has been updated. Refresh the page after following the link: http://results.elections.alaska.gov/data/results.htm",
     "GOODBYE": "You've been unsubscribed. Later!"
 }
