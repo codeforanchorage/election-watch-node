@@ -1,0 +1,79 @@
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    background-color: #fafafa;
+    color: #666;
+    margin: 0;
+    padding: 0;
+    font-size: 1.125em
+}
+h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    color: #3b549f;
+    font-size: 4em;
+    margin-bottom: .2em;
+}
+h2 {
+    font-weight: 600;
+    font-size: 1.25em;
+    margin-top: 0em;
+}
+h3 {
+    font-weight: 400;
+    font-size: 1.125em;
+    margin-bottom: 0em;
+}
+h4 {
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: .2em;
+}
+p {
+    line-height: 150%;
+}
+p.faq b {
+    font-weight: 600;
+}
+a {
+    color: #e02d36;;
+}
+
+#title {
+   max-width: 40em;
+   flex-basis: 40%;
+   flex-shrink: 1;
+   flex-grow:2;
+   width: 50%;
+}
+#splashImage{
+    flex-basis: 500px;
+    align-items: flex-end;
+    text-align: center;
+    padding-top: 3em;
+    margin-right: 2em;
+}
+#top {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    max-width: 1200px;
+    padding: 0 2em;
+    margin: 0 auto; 
+    background-color: #fafafa;
+}
+#phoneNumber {
+    color: #e02d36;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 200%
+}
+
+@media (max-width: 800px)
+{
+    p {
+        font-size:1.5em;
+    }
+    #top {
+        padding: 1.2em; 
+    }
+}
