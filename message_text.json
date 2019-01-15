@@ -2,5 +2,6 @@
     "CONFIRMATION": "Alrighty, you're signed up. Send STOP if you want the messages to stop and START if you change your mind after stopping.",
     "INSTRUCTIONS": "Sorry, I don't know what you want. Send STOP if you want the messages to stop and START if you change your mind after stopping.",
     "NOTIFICATION": "The page has been updated. Refresh the page after following the link: http://results.elections.alaska.gov/data/results.htm",
-    "GOODBYE": "You've been unsubscribed. Later!"
+    "GOODBYE": "You've been unsubscribed. Later!",
+    "ADMIN-HELP": "GET ADMINS, SET ADMIN <phone>, REMOVE ADMIN <phone>, GET URL, SET URL <url>, REMOVE SUBSCRIBERS"
 }
