@@ -16,6 +16,9 @@ var DEFAULT_URL = process.env.DEFAULT_URL
 
 var app = express() // instantiate express
 
+db.defaults({ subscribers: [] })
+config.defaults({ url: "", admins: [] })
+
 // Seed the admin list if in env
 if (INITIAL_ADMIN_PHONE) {
     if (!config('admins').find(function(item) {
