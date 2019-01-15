@@ -33,7 +33,7 @@ if (INITIAL_ADMIN_PHONE) {
 // Seed the url if in env and not already set
 if (DEFAULT_URL) {
     if (!config('url')) {
-        config.set('url', DEFAULT_URL).write()
+        config('url').set(DEFAULT_URL).write()
         console.log("Default URL Set")
     }
 }
