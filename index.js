@@ -12,6 +12,8 @@ var config = require('./config')
 
 var INITIAL_ADMIN_PHONE = process.env.INITIAL_ADMIN_PHONE
 var DEFAULT_URL = process.env.DEFAULT_URL
+console.log("INITIAL_ADMIN_PHONE " + INITIAL_ADMIN_PHONE)
+console.log("DEFAULT_URL " + DEFAULT_URL)
 
 
 var app = express() // instantiate express
@@ -24,6 +26,7 @@ if (INITIAL_ADMIN_PHONE) {
         config('admins').push(
             INITIAL_ADMIN_PHONE
         )
+        console.log("Admin seed set")
     }
 }
 
@@ -31,6 +34,7 @@ if (INITIAL_ADMIN_PHONE) {
 if (DEFAULT_URL) {
     if (!config('url')) {
         config.set('url', DEFAULT_URL).write()
+        console.log("Default URL Set")
     }
 }
 
