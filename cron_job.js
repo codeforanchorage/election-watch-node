@@ -6,6 +6,7 @@ var twilio = require('twilio')
 
 // project imports
 var db = require('./db')
+var config = require('./config')
 var message_text = require('./message_text.json')
 var site_checker = require('./site_checker')
 
@@ -31,7 +32,7 @@ function sendMessages() {
 
     // get weather
     site_checker.didSiteChange(
-        'http://results.elections.alaska.gov/data/results.htm',
+        config('url'),
         function (err, changed) {
             if (err) return console.log(err)
 
@@ -48,7 +49,7 @@ function sendMessages() {
                     {
                         to: subscriber.phone,
                         from: TWILIO_NUMBER,
-                        body: message_text.NOTIFICATION,
+                        body: message_text.NOTIFICATION + config('url'),
                     },
                     function (err, response) {
                         if (err) return console.log(err)
