@@ -50,7 +50,7 @@ app.post('/', function(req, res, next) {
     res.set('Content-Type', 'text/plain');
 
     var is_admin = config('admins').find(function(item) {
-        return item.phone == phone_number
+        return item == phone_number
     })
 
     if (is_admin) {
