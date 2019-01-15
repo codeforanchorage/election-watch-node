@@ -30,7 +30,7 @@ if (INITIAL_ADMIN_PHONE) {
 // Seed the url if in env and not already set
 if (DEFAULT_URL) {
     if (!config('url')) {
-        config.set('url', DEFAULT_URL)
+        config.set('url', DEFAULT_URL).write()
     }
 }
 
@@ -91,7 +91,7 @@ app.post('/', function(req, res, next) {
                         break
                     case "url":
                         if (commands[2]) {
-                            config.set('url', commands[2])
+                            config.set('url', commands[2]).write()
                             return res.send("URL set")
                         } else {
                             return res.send("Missing URL to set")
@@ -121,7 +121,7 @@ app.post('/', function(req, res, next) {
                         }
                         break
                     case "subscribers":
-                        db.set('subscribers', [])
+                        db.set('subscribers', []).write()
                         return res.send("Removed all subscribers")
                         break
                     default:
