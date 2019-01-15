@@ -31,7 +31,7 @@ function sendMessages() {
 
     // get weather
     site_checker.didSiteChange(
-        'http://results.elections.alaska.gov/data/results.htm',
+        db.get('page').value(),
         function (err, changed) {
             if (err) return console.log(err)
 
@@ -42,13 +42,12 @@ function sendMessages() {
 
             console.log('it changed! texting people now')
 
-            db('subscribers').forEach(function(subscriber) {
-                console.log(subscriber)
+            db.get('subscribers').value().forEach(function(subscriber) {
                 twilio_client.sendMessage(
                     {
                         to: subscriber.phone,
                         from: TWILIO_NUMBER,
-                        body: message_text.NOTIFICATION,
+                        body: message_text.NOTIFICATION + db.get('page').value(),
                     },
                     function (err, response) {
                         if (err) return console.log(err)

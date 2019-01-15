@@ -2,6 +2,12 @@
 
 
 var low = require('lowdb')
-var storage = require('lowdb/file-sync')
+var FileSync = require('lowdb/adapters/FileSync')
+var db = low(new FileSync('db.json'))
+db.defaults({
+    subscribers: [],
+    admin_numbers: [],
+    page: 'http://results.elections.alaska.gov/data/results.htm',
+}).write()
 
-module.exports = low('db.json', { storage: storage })
+module.exports = db

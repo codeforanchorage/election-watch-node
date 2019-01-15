@@ -27,20 +27,20 @@ app.post('/', function(req, res, next) {
     // this is necessary
     res.set('Content-Type', 'text/plain');
 
-    var is_subscriber = db('subscribers').find(function(item) {
+    var is_subscriber = db.get('subscribers').find(function(item) {
         return item.phone == phone_number
-    })
+    }).value()
 
     if (!is_subscriber) {
-        db('subscribers').push({
+        db.get('subscribers').push({
             phone: phone_number,
-        })
+        }).write()
     }
 
     if (is_subscriber && message.toLowerCase().trim() === 'stop') {
-        db('subscribers').remove(function(item) {
+        db.get('subscribers').remove(function(item) {
             return item.phone == phone_number
-        })
+        }).write()
         return res.send(text.GOODBYE)
     }
 
