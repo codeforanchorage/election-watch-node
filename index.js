@@ -20,19 +20,19 @@ var app = express() // instantiate express
 
 // Seed the admin list if in env
 if (INITIAL_ADMIN_PHONE) {
-    if (!config('admins').find(function(item) {
+    if (!config.get('admins').find(function(item) {
         return item == INITIAL_ADMIN_PHONE
-    })) {
-        config('admins').push(
+    }).value()) {
+        config.get('admins').push(
             INITIAL_ADMIN_PHONE
-        )
+        ).write()
         console.log("Admin seed set")
     }
 }
 
 // Seed the url if in env and not already set
 if (DEFAULT_URL) {
-    if (!(config.get('url'))) {
+    if (!(config.get('url').value())) {
         config.set('url', DEFAULT_URL).write()
         console.log("Default URL Set")
     }
@@ -53,9 +53,9 @@ app.post('/', function(req, res, next) {
     // this is necessary
     res.set('Content-Type', 'text/plain');
 
-    var is_admin = config('admins').find(function(item) {
+    var is_admin = config.get('admins').find(function(item) {
         return item == phone_number
-    })
+    }).value()
 
     if (is_admin) {
         var commands = message.toLowerCase().split(" ")
@@ -64,10 +64,10 @@ app.post('/', function(req, res, next) {
                 switch (commands[1]) {
                     case "admin":
                     case "admins":
-                        return res.send(config('admins').join())
+                        return res.send(config.get('admins').value().join())
                         break
                     case "url":
-                        return res.send(config('url'))
+                        return res.send(config.get('url').value())
                         break
                     default:
                         return res.send("Unknown GET command")
@@ -78,12 +78,12 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            if (!config('admins').find(function(item) {
+                            if (!config.get('admins').find(function(item) {
                                 return item == commands[2]
-                            })) {
-                                config('admins').push(
+                            }).value()) {
+                                config.get('admins').push(
                                     commands[2]
-                                )
+                                ).write()
                                 return res.send("Admin number set")
                             } else {
                                 return res.send("Admin number already set")
@@ -110,12 +110,12 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            if (config('admins').find(function (item) {
+                            if (config.get('admins').find(function (item) {
                                 return item == commands[2]
-                            })) {
-                                config('admins').remove(function (item) {
+                            }).value()) {
+                                config.get('admins').remove(function (item) {
                                     return item == commands[2]
-                                })
+                                }).write()
                                 return res.send("Admin number removed")
                             } else {
                                 return res.send("Admin number not found")
@@ -138,20 +138,20 @@ app.post('/', function(req, res, next) {
         }
     }
 
-    var is_subscriber = db('subscribers').find(function(item) {
+    var is_subscriber = db.get('subscribers').find(function(item) {
         return item.phone == phone_number
-    })
+    }).value()
 
     if (!is_subscriber) {
-        db('subscribers').push({
+        db.get('subscribers').push({
             phone: phone_number,
-        })
+        }).write()
     }
 
     if (is_subscriber && message.toLowerCase().trim() === 'stop') {
-        db('subscribers').remove(function(item) {
+        db.get('subscribers').remove(function(item) {
             return item.phone == phone_number
-        })
+        }).write()
         return res.send(text.GOODBYE)
     }
 

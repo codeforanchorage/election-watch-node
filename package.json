@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/codeforanchorage/election-watch-node#readme",
   "dependencies": {
-    "body-parser": "^1.15.0",
+    "body-parser": "^1.18.3",
     "cron": "^1.1.0",
-    "express": "^4.13.4",
-    "lowdb": "^0.12.5",
-    "request": "^2.69.0",
+    "express": "^4.16.4",
+    "lowdb": "^1.0.0",
+    "request": "^2.88.0",
     "twilio": "^2.9.0",
     "xml2js": "^0.4.16"
   }

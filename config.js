@@ -2,6 +2,11 @@
 
 
 var low = require('lowdb')
-var storage = require('lowdb/file-sync')
+var FileSync = require('lowdb/adapters/FileSync')
+var config = low(new FileSync('config.json'))
+config.defaults({
+    admins: [],
+    url: ''
+}).write()
 
-module.exports = low('config.json', { storage: storage })
+module.exports = config

@@ -32,7 +32,7 @@ function sendMessages() {
 
     // get weather
     site_checker.didSiteChange(
-        config('url'),
+        config.get('url').value(),
         function (err, changed) {
             if (err) return console.log(err)
 
@@ -43,13 +43,13 @@ function sendMessages() {
 
             console.log('it changed! texting people now')
 
-            db('subscribers').forEach(function(subscriber) {
+            db.get('subscribers').value().forEach(function(subscriber) {
                 console.log(subscriber)
                 twilio_client.sendMessage(
                     {
                         to: subscriber.phone,
                         from: TWILIO_NUMBER,
-                        body: message_text.NOTIFICATION + config('url'),
+                        body: message_text.NOTIFICATION + config.get('url').value(),
                     },
                     function (err, response) {
                         if (err) return console.log(err)
