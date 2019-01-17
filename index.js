@@ -133,6 +133,7 @@ app.post('/', function(req, res, next) {
                 }
                 break
             case "help":
+            case "?":
                 return res.send(text.ADMIN_HELP)
                 break
         }
