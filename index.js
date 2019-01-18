@@ -38,6 +38,17 @@ if (DEFAULT_URL) {
     }
 }
 
+// Returns formatted phone for Twilio if successful, '' if not
+function formatPhone(input) {
+    var phone = '+' + input.replace(/\(|\)|\.|\+|,|-| /g, '')
+    if (/^\+1\d{10}$/.test(phone)) {
+        return phone
+    } else {
+        return ''
+    }
+}
+
+
 
 // serve files from the public dir for testing via web
 app.get('/', express.static(__dirname + '/public'))
@@ -78,8 +89,8 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            var phone = '+' + commands[2].replace(/\(|\)|\.|\+|,|-| /g,'')
-                            if (!/^\+1\d10/.test(phone)) {
+                            var phone = formatPhone(commands[2])
+                            if (!phone) {
                                 return res.send("Enter phone as +1NNNNNNNNNN")
                             }
                             if (!config.get('admins').find(function(item) {
@@ -114,8 +125,8 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            var phone = '+' + commands[2].replace(/\(|\)|\.|\+|,|-| /g,'')
-                            if (!/^\+1\d10/.test(phone)) {
+                            var phone = formatPhone(commands[2])
+                            if (!phone) {
                                 return res.send("Enter phone as +1NNNNNNNNNN")
                             }
                             if (config.get('admins').find(function (item) {
