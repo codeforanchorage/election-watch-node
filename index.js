@@ -78,7 +78,7 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            var phone = commands[2].replace(/\(|\)|\.|\+|,|-| /g,'')
+                            var phone = '+' + commands[2].replace(/\(|\)|\.|\+|,|-| /g,'')
                             if (!/^\+1\d10/.test(phone)) {
                                 return res.send("Enter phone as +1NNNNNNNNNN")
                             }
@@ -114,7 +114,7 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            var phone = commands[2].replace(/\(|\)|\.|\+|,|-| /g,'')
+                            var phone = '+' + commands[2].replace(/\(|\)|\.|\+|,|-| /g,'')
                             if (!/^\+1\d10/.test(phone)) {
                                 return res.send("Enter phone as +1NNNNNNNNNN")
                             }
