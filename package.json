@@ -1,7 +1,7 @@
 {
-  "name": "plug-at-20-sms",
+  "name": "election-watch-node",
   "version": "1.0.0",
-  "description": "Sends SMS reminders to plug in your car when the temp drops below 20",
+  "description": "Sends SMS notifications when election results change",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
@@ -9,20 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codeforanchorage/plug-at-20-sms.git"
+    "url": "git+https://github.com/codeforanchorage/election-watch-node.git"
   },
   "author": "Nigel Kibodeaux",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/codeforanchorage/plug-at-20-sms/issues"
+    "url": "https://github.com/codeforanchorage/election-watch-node/issues"
   },
-  "homepage": "https://github.com/codeforanchorage/plug-at-20-sms#readme",
+  "homepage": "https://github.com/codeforanchorage/election-watch-node#readme",
   "dependencies": {
-    "body-parser": "^1.15.0",
+    "body-parser": "^1.18.3",
     "cron": "^1.1.0",
-    "express": "^4.13.4",
-    "lowdb": "^0.12.5",
-    "request": "^2.69.0",
+    "express": "^4.16.4",
+    "lowdb": "^1.0.0",
+    "request": "^2.88.0",
     "twilio": "^2.9.0",
     "xml2js": "^0.4.16"
   }
