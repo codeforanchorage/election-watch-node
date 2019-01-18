@@ -89,7 +89,7 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            var phone = formatPhone(commands[2])
+                            var phone = formatPhone(commands.slice(2,100).join(" "))
                             if (!phone) {
                                 return res.send("Enter phone as +1NNNNNNNNNN")
                             }
@@ -125,7 +125,7 @@ app.post('/', function(req, res, next) {
                     case "admin":
                     case "admins":
                         if (commands[2]) {
-                            var phone = formatPhone(commands[2])
+                            var phone = formatPhone(commands.slice(2,100).join(" "))
                             if (!phone) {
                                 return res.send("Enter phone as +1NNNNNNNNNN")
                             }
