@@ -3,5 +3,5 @@
     "INSTRUCTIONS": "Sorry, I don't know what you want. Send STOP if you want the messages to stop and START if you change your mind after stopping.",
     "NOTIFICATION": "The page has been updated. Refresh the page after following the link: ",
     "GOODBYE": "You've been unsubscribed. Later!",
-    "ADMIN_HELP": "GET ADMINS, SET ADMIN <phone>, REMOVE ADMIN <phone>, GET URL, SET URL <url>, REMOVE SUBSCRIBERS"
+    "ADMIN_HELP": "GET SUBSCRIBERS, GET ADMINS, SET ADMIN <phone>, REMOVE ADMIN <phone>, GET URL, SET URL <url>, REMOVE SUBSCRIBERS"
 }
