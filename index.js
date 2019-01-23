@@ -69,6 +69,10 @@ app.post('/', function(req, res, next) {
                     case "url":
                         return res.send(config.get('url').value())
                         break
+                    case "subscribers":
+                        var num_subs = db.get('subscribers').value().length
+                        return res.send(num_subs + ' subscribers')
+                        break
                     default:
                         return res.send("Unknown GET command")
                 }
