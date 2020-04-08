@@ -17,10 +17,13 @@ function didSiteChange(url, callback) {
     request(options, function (err, response, body) {
         if (err) return callback(err)
 
-        // update cache
-        fs.writeFileSync(filename, body)
+        // remove scripts in the body
+        var filteredBody = body.replace(/<script[\s\S]*?>[\s\S]*?<\/script>/gi, '')
 
-        if (lastFetch != body) return callback(null, true)
+        // update cache
+        fs.writeFileSync(filename, filteredBody)
+
+        if (lastFetch != filteredBody) return callback(null, true)
         callback(null, false)
     })
 }
