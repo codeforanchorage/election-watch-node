@@ -13,8 +13,7 @@ function didSiteChange(url, callback) {
     }
     catch (err) {
         if (err.code === 'ENOENT') {
-            // didn't change because we have no baseline
-            lastFetch = false
+            // didn't change because we have no baseline. it's okay.
         }
     }
 
@@ -35,7 +34,7 @@ function didSiteChange(url, callback) {
         fs.writeFileSync(filename, filteredBody)
 
         // handle the case of having no lastFetch
-        if (lastFetch === null) return callback(null, false)
+        if (!lastFetch) return callback(null, false)
 
         // handle case of a differring last fetch
         if (lastFetch != filteredBody) return callback(null, true)
