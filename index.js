@@ -114,7 +114,8 @@ app.post('/', function(req, res, next) {
                         break
                     case "url":
                         if (commands[2]) {
-                            config.set('url', commands[2]).write()
+                            var url = message.split(' ')[2] // not lowercased
+                            config.set('url', url).write()
                             return res.send("URL set")
                         } else {
                             return res.send("Missing URL to set")
