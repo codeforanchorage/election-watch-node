@@ -13,7 +13,7 @@ function didSiteChange(url, callback) {
     }
     catch (err) {
         if (err.code === 'ENOENT') {
-            // didn't change because we have no baseline. it's okay.
+            // we have no baseline yet, it's okay.
         }
     }
 
