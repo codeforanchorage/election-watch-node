@@ -9,6 +9,7 @@ var text = require('./message_text.json')
 var cron_job = require('./cron_job').job
 var db = require('./db')
 var config = require('./config')
+var site_checker = require('./site_checker')
 
 var INITIAL_ADMIN_PHONE = process.env.INITIAL_ADMIN_PHONE
 var DEFAULT_URL = process.env.DEFAULT_URL
@@ -116,6 +117,7 @@ app.post('/', function(req, res, next) {
                         if (commands[2]) {
                             var url = message.split(' ')[2] // not lowercased
                             config.set('url', url).write()
+                            site_checker.resetFile()
                             return res.send("URL set")
                         } else {
                             return res.send("Missing URL to set")

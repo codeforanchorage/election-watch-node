@@ -6,7 +6,17 @@ var filename = 'lastFetch.html'
 
 
 function didSiteChange(url, callback) {
-    var lastFetch = fs.readFileSync(filename, 'utf8')
+    var lastFetch = null
+
+    try {
+        lastFetch = fs.readFileSync(filename, 'utf8')
+    }
+    catch (err) {
+        if (err.code === 'ENOENT') {
+            // we have no baseline yet, it's okay.
+        }
+    }
+
     var options = {
         url: url,
         headers: {
@@ -23,9 +33,19 @@ function didSiteChange(url, callback) {
         // update cache
         fs.writeFileSync(filename, filteredBody)
 
+        // handle the case of having no lastFetch
+        if (!lastFetch) return callback(null, false)
+
+        // handle case of a differring last fetch
         if (lastFetch != filteredBody) return callback(null, true)
+
         callback(null, false)
     })
 }
 
+function resetFile() {
+    fs.unlinkSync(filename)
+}
+
 module.exports.didSiteChange = didSiteChange
+module.exports.resetFile = resetFile
